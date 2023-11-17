@@ -11,7 +11,7 @@ Feature: Account Management
 
     Examples:
       | Firstname | Lastname | Email               | Password    | Confirmpassword |
-      | Davis     | Olly     | daveolly3@email.com | Testing001@ | Testing001@     |
+      | Davis     | Olly     | daveolly09@email.com | Testing002@ | Testing002@     |
 
 
   @AccountLogin
@@ -22,35 +22,36 @@ Feature: Account Management
     Then My account welcome page should be displayed
 
     Examples:
-      | Email              | Password    |
-      | daveolly3@email.com | Testing001@ |
+      | Email               | Password    |
+      | daveolly09@email.com | Testing002@ |
 
 
- @DuplicateAccount
+  @DuplicateAccount
   Scenario Outline: Duplicate account not allowed
-   Given I am on create account page
-   When I enter "<Firstname>" "<Lastname>" "<Email>" "<Password>" "<Confirmpassword>"
-   And I click on create an account
-   Then Account already exist should displayed
+    Given I am on create account page
+    When I enter "<Firstname>" "<Lastname>" "<Email>" "<Password>" "<Confirmpassword>"
+    And I click on create an account
+    Then Account already exist should displayed
 
 
 
 
     Examples:
       | Firstname | Lastname | Email               | Password  | Confirmpassword |
-      | David     | Holy     | daveolly3@email.com | Tester01@ | Tester01@       |
+      | David     | Holy     | daveolly09@email.com | Tester01@ | Tester01@       |
 
 
-
- @UnregisteredAccount
+  @UnregisteredAccount
   Scenario Outline: Unregistered customer should see an error
-   Given I am on sign in page
-   When I enter "<Email>" "<Password>"
-   And I click on sign in
-   Then Unregistered account should displayed
+    Given I am on sign in page
+    When I enter "<Email>" "<Password>"
+    And I click on sign in
+    Then Unregistered account should displayed
 
 
 
     Examples:
       | Email              | Password    |
-      | daveolly@gmail.com | Testing001@ |
+      | daveolly@gmail.com | Testing01@ |
+
+
