@@ -80,6 +80,42 @@ public class AccountManagementSteps {
     public void unregisteredAccountShouldDisplayed() {
     }
 
+    @And("I click on change password")
+    public void iClickOnChangePassword() {
+        UpdatePasswordPagePO updatePasswordPagePO = new UpdatePasswordPagePO(driver);
+        updatePasswordPagePO.clickChangePasswordLink();
+    }
+
+    @And("I enter {string} {string} {string}")
+    public void iEnter(String CurrentPassword, String NewPassword, String ConfirmNewPassword) {
+        UpdatePasswordPagePO updatePasswordPagePO = new UpdatePasswordPagePO(driver);
+        updatePasswordPagePO.enterCurrentPassword (CurrentPassword);
+        updatePasswordPagePO.enterNewPassword(NewPassword);
+        updatePasswordPagePO.enterConfirmNewPassword(ConfirmNewPassword);
+    }
+
+    @Then("My account password should be updated")
+    public void myAccountPasswordShouldBeUpdated() {
+    }
+
+
+    @And("I click Update new addresses and phone number")
+    public void iClickUpdateNewAddressesAndPhoneNumber() {
+        UpdateCustomerDetailsPagePO updateCustomerDetailsPagePO = new UpdateCustomerDetailsPagePO(driver);
+        updateCustomerDetailsPagePO.clickChangeShippingAddress();
+    }
+
+    @And("i input {string} {string} {string}")
+    public void iInput(String StreetAddress, String City, String Zipcode) {
+        UpdateCustomerDetailsPagePO updateCustomerDetailsPagePO = new UpdateCustomerDetailsPagePO(driver);
+        updateCustomerDetailsPagePO.enterStreetAddress(StreetAddress);
+        updateCustomerDetailsPagePO.enterCity(City);
+        updateCustomerDetailsPagePO.enterZipcode(Zipcode);
+    }
+
+    @Then("address and Contact Telephone Number is updated")
+    public void addressAndContactTelephoneNumberIsUpdated() {
+    }
 }
 
 

@@ -10,8 +10,8 @@ Feature: Account Management
 
 
     Examples:
-      | Firstname | Lastname | Email               | Password    | Confirmpassword |
-      | Davis     | Olly     | daveolly09@email.com | Testing002@ | Testing002@     |
+      | Firstname | Lastname | Email                | Password    | Confirmpassword |
+      | Davis     | Olly     | daveolly50@email.com | Testing002@ | Testing002@     |
 
 
   @AccountLogin
@@ -22,8 +22,8 @@ Feature: Account Management
     Then My account welcome page should be displayed
 
     Examples:
-      | Email               | Password    |
-      | daveolly09@email.com | Testing002@ |
+      | Email                | Password    |
+      | daveolly50@email.com | Testing002@ |
 
 
   @DuplicateAccount
@@ -37,8 +37,8 @@ Feature: Account Management
 
 
     Examples:
-      | Firstname | Lastname | Email               | Password  | Confirmpassword |
-      | David     | Holy     | daveolly09@email.com | Tester01@ | Tester01@       |
+      | Firstname | Lastname | Email                | Password  | Confirmpassword |
+      | David     | Holy     | daveolly50@email.com | Tester01@ | Tester01@       |
 
 
   @UnregisteredAccount
@@ -51,7 +51,35 @@ Feature: Account Management
 
 
     Examples:
-      | Email              | Password    |
+      | Email              | Password   |
       | daveolly@gmail.com | Testing01@ |
 
+
+  @UpdatePassword
+  Scenario Outline: Update account password
+    Given I am on sign in page
+    When I enter "<Email>" "<Password>"
+    And I click on sign in
+    And I click on change password
+    And I enter "<CurrentPassword>" "<NewPassword>" "<ConfirmNewPassword>"
+    Then My account password should be updated
+
+    Examples:
+      | Email                | Password    | CurrentPassword | NewPassword  | ConfirmNewPassword |
+      | daveolly50@email.com | Testing002@ | Testing002@     | Testing002@@ | Testing002@@       |
+
+
+  @UpdateCustomerDetails
+  Scenario Outline: Update Address, Contact Telephone Number
+    Given I am on sign in page
+    When I enter "<Email>" "<Password>"
+    And I click on sign in
+    And I click Update new addresses and phone number
+    And i input "<StreetAddress>" "<City>" "<ZipCode>"
+    Then address and Contact Telephone Number is updated
+
+
+    Examples:
+      | Email                | Password    | StreetAddress | City  | ZipCode |
+      | daveolly50@email.com | Testing001@ | 1/1 Oslo ave  | Glago | 1aa 1bb |
 
