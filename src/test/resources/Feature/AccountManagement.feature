@@ -11,7 +11,7 @@ Feature: Account Management
 
     Examples:
       | Firstname | Lastname | Email                | Password    | Confirmpassword |
-      | Davis     | Olly     | daveolly50@email.com | Testing002@ | Testing002@     |
+      | Davis     | Olly     | daveolly53@email.com | Testing002@ | Testing002@     |
 
 
   @AccountLogin
@@ -23,7 +23,7 @@ Feature: Account Management
 
     Examples:
       | Email                | Password    |
-      | daveolly50@email.com | Testing002@ |
+      | daveolly53@email.com | Testing002@ |
 
 
   @DuplicateAccount
@@ -38,7 +38,7 @@ Feature: Account Management
 
     Examples:
       | Firstname | Lastname | Email                | Password  | Confirmpassword |
-      | David     | Holy     | daveolly50@email.com | Tester01@ | Tester01@       |
+      | David     | Holy     | daveolly53@email.com | Tester01@ | Tester01@       |
 
 
   @UnregisteredAccount

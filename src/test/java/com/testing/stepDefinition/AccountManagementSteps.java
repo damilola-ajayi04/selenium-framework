@@ -6,6 +6,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class AccountManagementSteps {
@@ -39,6 +40,9 @@ public class AccountManagementSteps {
 
     @Then("My account page is displayed")
     public void myAccountPageIsDisplayed() {
+        String expectedResult = "My Account";
+        String actualResult = driver.getTitle();
+        Assert.assertEquals(expectedResult, actualResult);
     }
 
     @Given("I am on sign in page")
@@ -66,18 +70,27 @@ public class AccountManagementSteps {
 
     @Then("My account welcome page should be displayed")
     public void myAccountWelcomePageShouldBeDisplayed() {
+        String expectedResult = "Magento 2 Commerce (Enterprise) Demo - Magebit";
+        String actualResult = driver.getTitle();
+        Assert.assertEquals(expectedResult, actualResult);
     }
 
 
 
     @Then("Account already exist should displayed")
     public void accountAlreadyExistShouldDisplayed() {
+        String expectedResult = "Create New Customer Account";
+        String actualResult = driver.getTitle();
+        Assert.assertEquals(expectedResult, actualResult);
     }
 
 
 
     @Then("Unregistered account should displayed")
     public void unregisteredAccountShouldDisplayed() {
+        String expectedResult = "Customer Login";
+        String actualResult = driver.getTitle();
+        Assert.assertEquals(expectedResult, actualResult);
     }
 
     @And("I click on change password")
